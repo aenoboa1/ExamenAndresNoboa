@@ -1,4 +1,4 @@
-package ec.edu.espe.examenandresnoboa;
+package ec.edu.espe.arquitectura.examennoboa;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

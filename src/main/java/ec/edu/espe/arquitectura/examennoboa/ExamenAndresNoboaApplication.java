@@ -1,4 +1,4 @@
-package ec.edu.espe.examenandresnoboa;
+package ec.edu.espe.arquitectura.examennoboa;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
