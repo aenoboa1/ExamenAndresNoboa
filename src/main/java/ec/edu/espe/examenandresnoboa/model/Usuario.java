@@ -5,11 +5,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "seg_usuario")
@@ -39,6 +43,10 @@ public class Usuario {
 
     @Column(name = "VERSION")
     private Long version;
+
+    @OneToMany(mappedBy = "codUsuario")
+    private List<UsuarioPerfil> segUsuarioPerfils;
+
 
 
     public Usuario(Integer id) {
