@@ -33,7 +33,6 @@ public class PerfilService {
             return perfilRepository.save(perfil);
         }
     }
-    // method that updates the perfil
     @Transactional
     public Perfil update(Perfil perfil) {
         Optional<Perfil> perfilOpt = this.perfilRepository.findById(perfil.getCodPerfil());

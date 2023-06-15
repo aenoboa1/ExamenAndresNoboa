@@ -23,7 +23,6 @@ public class UsuarioController {
         this.usuarioservice = usuarioservice;
     }
 
-
     @GetMapping("{perfilid}")
     public ResponseEntity<List<UsuarioPerfil>> obtainUsuarios(
             @PathVariable(name="perfilid") String codPerfil
@@ -31,7 +30,6 @@ public class UsuarioController {
         List<UsuarioPerfil> usuarios = this.usuarioservice.listAllUsuariosInPerfil(codPerfil);
         return ResponseEntity.ok(usuarios);
     }
-    // method that creates a new Usuario
     @GetMapping("{codUsuario}")
     public ResponseEntity<Usuario> createUsuario(Usuario usuario) {
         try {
@@ -41,7 +39,6 @@ public class UsuarioController {
             return ResponseEntity.badRequest().build();
         }
     }
-    // method that updates a Usuario
     @PutMapping
     public ResponseEntity<Usuario> update(Usuario usuario) {
         try {
@@ -51,7 +48,6 @@ public class UsuarioController {
             return ResponseEntity.badRequest().build();
         }
     }
-    // method that deletes a Usuario
     @DeleteMapping("{codUsuario}")
     public ResponseEntity<Void> deleteUsuario(@PathVariable(name="codUsuario") Integer codUsuario) {
         try {

@@ -17,13 +17,11 @@ public class UsuarioService {
     private final UsuarioRepository usuarioRepository;
     private final UsuarioPerfilRepository usuarioPerfilRepository;
 
-
     public UsuarioService(UsuarioRepository usuarioRepository, UsuarioPerfilRepository usuarioPerfilRepository) {
         this.usuarioRepository = usuarioRepository;
         this.usuarioPerfilRepository = usuarioPerfilRepository;
     }
 
-    // write a method that list all Usuarios in a Perfil
     public List<UsuarioPerfil> listAllUsuariosInPerfil(String idPerfil){
         return this.usuarioPerfilRepository.findByCodPerfil(idPerfil);
     }
