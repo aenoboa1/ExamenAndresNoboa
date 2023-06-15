@@ -24,10 +24,9 @@ public class UsuarioService {
     }
 
     // write a method that list all Usuarios in a Perfil
-    public List<UsuarioPerfil> listAllUsuariosInPerfil(Integer idPerfil){
-        return this.usuarioPerfilRepository.findByCodUsuario(idPerfil);
+    public List<UsuarioPerfil> listAllUsuariosInPerfil(String idPerfil){
+        return this.usuarioPerfilRepository.findByCodPerfil(idPerfil);
     }
-
     @Transactional
     public Usuario createUsuario(Usuario usuario) {
         Usuario usuarioOpt = this.usuarioRepository.findByIdAndMail(usuario.getId(), usuario.getMail());
@@ -52,6 +51,17 @@ public class UsuarioService {
             return usuarioTmp;
         }
         else{
+            throw new RuntimeException("No existe el usuario");
+        }
+    }
+    @Transactional
+    public void deleteUsuario(Integer id) {
+        Optional<Usuario> usuarioOpt = this.usuarioRepository.findById(id);
+        if (usuarioOpt.isPresent()) {
+            Usuario usuarioTmp = usuarioOpt.get();
+            this.usuarioRepository.delete(usuarioTmp);
+        }
+        else {
             throw new RuntimeException("No existe el usuario");
         }
     }

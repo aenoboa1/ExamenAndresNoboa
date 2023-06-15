@@ -8,7 +8,6 @@ import java.util.List;
 
 public interface UsuarioPerfilRepository extends JpaRepository<UsuarioPerfil, UsuarioPerfilPK> {
 
-    UsuarioPerfil findByCodUsuarioAndCodPerfil(Integer codUsuario, String codPerfil);
-    List<UsuarioPerfil> findByCodUsuario(Integer codUsuario);
+    List<UsuarioPerfil> findByCodPerfil(String codPerfil);
 
 }

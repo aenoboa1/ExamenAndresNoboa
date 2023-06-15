@@ -33,5 +33,29 @@ public class PerfilService {
             return perfilRepository.save(perfil);
         }
     }
-
+    // method that updates the perfil
+    @Transactional
+    public Perfil update(Perfil perfil) {
+        Optional<Perfil> perfilOpt = this.perfilRepository.findById(perfil.getCodPerfil());
+        if (perfilOpt.isPresent()) {
+            Perfil perfilTmp = perfilOpt.get();
+            perfilTmp.setNombre(perfil.getNombre());
+            this.perfilRepository.save(perfilTmp);
+            return perfilTmp;
+        }
+        else {
+            throw new RuntimeException("No existe el perfil");
+        }
+    }
+    @Transactional
+    public void deletePerfil(String codPerfil) {
+        Optional<Perfil> perfilOpt = this.perfilRepository.findById(codPerfil);
+        if (perfilOpt.isPresent()) {
+            Perfil perfilTmp = perfilOpt.get();
+            this.perfilRepository.delete(perfilTmp);
+        }
+        else {
+            throw new RuntimeException("No existe el perfil");
+        }
+    }
 }
